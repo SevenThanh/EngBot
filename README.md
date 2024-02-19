@@ -1,6 +1,9 @@
 # EngBot
 Engbot work 
 
+--> Rough draft for now, will update section when design is complete and ready to be implemented
+
+
 
 ## SETUP
 Here is a little paragraph to get started!
