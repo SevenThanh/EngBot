@@ -1,6 +1,8 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Footer from '@/components/Footer'
+import ExperienceSlide from '@/components/ExperienceSlide'
+import LearnSlide from '@/components/LearnSlide'
 
 export default function Home() {
     return (
@@ -8,6 +10,8 @@ export default function Home() {
             <Navbar />
             <Hero />
             <Footer />
+            <ExperienceSlide />
+            <LearnSlide />
         </div>
     )
 }
