@@ -3,6 +3,11 @@ export default {
   content: ["index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
 
+    fontFamily: {
+      sans: ['adelle-sans sans-serif'],
+      regular: ['adelle serif']
+    },
+
     colors: {
       background: 'rgb(249 250 251)',
       background_gray: 'rgb(229 229 229)',
