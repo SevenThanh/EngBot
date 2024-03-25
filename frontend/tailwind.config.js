@@ -6,8 +6,10 @@ export default {
     colors: {
       background: 'rgb(249 250 251)',
       background_gray: 'rgb(229 229 229)',
-      primary: 'rgb(125 211 252)',
-      accent: 'rgb(37 99 235)',
+      light_100: '#c1ebf4',
+      light_300: '#9fdfe2',
+      dark_500: '#2030b8',
+      dark_700: '#0b1154',
     },
 
     extend: {

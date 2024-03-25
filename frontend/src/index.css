@@ -26,6 +26,6 @@ body {
 
 @layer components {
   strong {
-    @apply text-accent;
+    @apply text-dark_500;
   }
 }

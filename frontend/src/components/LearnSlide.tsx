@@ -16,7 +16,7 @@ export default function LearnSlide() {
                     <img src="" alt="FART SMELLA" />
                 </div>
             </main>
-            <div className="w-full grow bg-gradient-to-r from-primary to-background">
+            <div className="w-full grow bg-gradient-to-r from-light_100 to-background">
             </div>
         </div>
     )
