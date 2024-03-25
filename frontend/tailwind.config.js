@@ -4,8 +4,7 @@ export default {
   theme: {
 
     fontFamily: {
-      sans: ['adelle-sans sans-serif'],
-      regular: ['adelle serif']
+      regular: ['Roboto Condensed']
     },
 
     colors: {
