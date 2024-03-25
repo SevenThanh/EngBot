@@ -1,0 +1,23 @@
+import { BsThreeDots } from "react-icons/bs"
+
+export default function LearnSlide() {
+    return (
+        <div className="w-full h-screen pt-[10vh] flex flex-col bg-background">
+            <main className="flex flex-col items-center gap-4 px-1/10 mb-[10vh]">
+                <h1 className="text-6xl font-bold">Learn at your level</h1>
+                <p className="text-2xl text-center">
+                    Whether you're a student, worker, or a parent looking to
+                    boost your English, we have everything you need.
+                </p>
+                <div className="flex flex-row my-24 gap-12
+                    w-2/3 min-w-[320px] justify-between">
+                    <img src="" alt="SMART FELLA" />
+                    <BsThreeDots size={120} />
+                    <img src="" alt="FART SMELLA" />
+                </div>
+            </main>
+            <div className="w-full grow bg-gradient-to-r from-light_100 to-background">
+            </div>
+        </div>
+    )
+}
