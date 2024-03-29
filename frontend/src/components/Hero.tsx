@@ -1,15 +1,15 @@
 export default function Hero() {
     return (
-        <div className="w-full py-1/10 pl-1/5 pr-1/4 bg-gradient-to-r from-light_100
-                        to-background flex flex-row gap-24">
-            <img src="" alt="ENGBOT MASCOT" className="h-[200px] w-[200px]" />
+        <div className="w-full py-1/10 px-1/10 bg-gradient-to-r from-light_100
+                        to-background flex flex-row gap-24 justify-center">
+            <img src="main.png" alt="ENGBOT MASCOT" className="object-scale-down" />
             <div className="max-w-1/2">
                 <p className="text-4xl mb-6 leading-tight">
                     Not confident in your English? Engbot got you covered with
                     <strong> engaging real-life lessons </strong> tailored
                     <strong> just for you </strong>
                 </p>
-                <button className="px-8 py-4 rounded-lg bg-light_100 shadow">
+                <button className="text-3xl px-8 py-4 rounded-lg bg-light_100 shadow">
                     Get Started
                 </button>
             </div>
