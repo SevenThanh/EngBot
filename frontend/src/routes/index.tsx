@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from "@/pages/Home"
-import { Signup } from "@pages/Signup.tsx"
-import { Login } from "@pages/Login.tsx"
+import { Home } from "@/pages/Home"
+import { Signup } from "@/pages/Signup.tsx"
+import { Login } from "@/pages/Login.tsx"
 
 export default function AppRoutes() {
     return (
