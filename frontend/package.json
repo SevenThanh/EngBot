@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
     "joi": "^17.12.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
