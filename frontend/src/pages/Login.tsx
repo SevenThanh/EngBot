@@ -1,12 +1,16 @@
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
+import { useNavigate } from 'react-router-dom'
 
 //will make this more dev friendly in the future
 export function Login() {
     const { register, handleSubmit, formState } = useForm()
+    const navigate = useNavigate()
+
     function onSubmit() {
         try {
             console.log("login form submitted")
+            navigate('/')
         } catch (error) {
             console.log((error as Error).message)
         }
