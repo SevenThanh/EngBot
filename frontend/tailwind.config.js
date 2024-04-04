@@ -8,12 +8,12 @@ export default {
     },
 
     colors: {
-      background: 'rgb(249 250 251)',
-      background_gray: 'rgb(229 229 229)',
-      light_100: '#c1ebf4',
-      light_300: '#9fdfe2',
-      dark_500: '#2030b8',
-      dark_700: '#0b1154',
+      'neutral-100': '#f9fafb',
+      'neutral-300': '#e5e5e5',
+      'light-100': '#c1ebf4',
+      'light-300': '#9fdfe2',
+      'dark-500': '#2030b8',
+      'dark-700': '#0b1154',
     },
 
     extend: {

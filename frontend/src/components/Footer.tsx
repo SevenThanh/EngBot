@@ -2,7 +2,7 @@ import { BsTencentQq } from 'react-icons/bs'
 
 export default function Footer() {
     return (
-        <footer className="min-h-24 bg-background_gray grid grid-cols-3 p-6">
+        <footer className="min-h-24 bg-neutral-300 grid grid-cols-3 p-6">
             <div className="border-r flex flex-col items-center">
                 <BsTencentQq size={80} className="p-2 border-4 border-blue rounded-xl" />
                 <p className="text-xl">Real-Life Scenarios</p>
