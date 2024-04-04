@@ -11,9 +11,9 @@ export default function LearnSlide() {
                 </p>
                 <div className="flex flex-row my-24 gap-12
                     w-2/3 min-w-[320px] justify-between">
-                    <img src="" alt="SMART FELLA" />
+                    <img src="student.png" alt="SMART FELLA" className="grow max-w-[200px]" />
                     <BsThreeDots size={120} />
-                    <img src="" alt="FART SMELLA" />
+                    <img src="work.png" alt="FART SMELLA" className="grow max-w-[200px]" />
                 </div>
             </main>
             <div className="w-full grow bg-gradient-to-r from-light_100 to-background">
