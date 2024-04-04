@@ -1,3 +1,5 @@
+import { ButtonGroup } from "@/components/buttons/ButtonGroup"
+
 interface QuestionProps {
     question: string,
     answers: string[],
@@ -7,11 +9,12 @@ interface QuestionProps {
 
 export function Question({ question, answers, small, type="single" }: QuestionProps) {
     //just style this for now :)
+
     return (
         <section className="flex flex-col">
             <h1>{question}</h1>
             {small && <p>{small}</p>}
-            {answers.map(ans => <div>{ans}</div>)}
+            <ButtonGroup group={question} labels={answers} />
         </section>
     )
 }
