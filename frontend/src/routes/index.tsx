@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
-import { GetStarted, Home } from "@/pages"
+import { UserRegistration, Home } from "@/pages"
 
 export default function AppRoutes() {
     return (
         <Routes>
-            <Route path="/get-started" element={<GetStarted />} />
+            <Route path="/get-started" element={<UserRegistration />} />
             <Route path="*" element={<Home />} />
         </Routes>
     )

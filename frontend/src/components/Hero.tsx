@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Hero() {
     return (
         <div className="w-full py-1/10 px-1/10 bg-gradient-to-r from-light_100
@@ -9,9 +11,11 @@ export default function Hero() {
                     <strong> engaging real-life lessons </strong> tailored
                     <strong> just for you </strong>
                 </p>
-                <button className="text-3xl px-8 py-4 rounded-lg bg-light_100 shadow">
-                    Get Started
-                </button>
+                <Link to="/get-started">
+                    <button className="text-3xl px-8 py-4 rounded-lg bg-light_100 shadow">
+                        Get Started
+                    </button>
+                </Link>
             </div>
         </div>
     )

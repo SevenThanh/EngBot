@@ -1,4 +1,4 @@
-export interface QuestionProps {
+interface QuestionProps {
     question: string,
     answers: string[],
 }
