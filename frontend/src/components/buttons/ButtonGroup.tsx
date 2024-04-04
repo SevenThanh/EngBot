@@ -1,10 +1,10 @@
-import { createContext, useState } from "react"
+import { useState } from "react"
 import { SelectionButton } from "./SelectionButton"
 
 type Label = {
     label?: string,
     text: string
-}[] | string[]
+} | string
 
 export type ButtonGroupType = {
     buttonState: number,
@@ -13,24 +13,50 @@ export type ButtonGroupType = {
 
 interface ButtonGroupProps {
     group: string,
-    labels: Label,
+    labels: Label[],
     type?: string,
 }
 
-export const ButtonGroupContext = createContext<ButtonGroupType>(null!)
-
 export function ButtonGroup({ group, labels, type="single" }: ButtonGroupProps) {
-    const [buttonState, setButtonState] = useState<number>(null!)
+    const [buttonState, setButtonState] = useState<number | number[]>(() => {
+        if (type == "single")
+            return -1
+        return []
+    })
 
-    const labelToButton = (label: Label) => {
+    const isActive = type == "single" ?
+        (id: number) => buttonState == id :
+        (id: number) => (buttonState as number[]).includes(id)
+
+    const setActive = type == "single" ?
+        (id: number) => setButtonState(id) :
+        (id: number) => setButtonState(prevState => {
+            if ((prevState as number[]).includes(id))
+                return (prevState as number[]).filter(elem => elem != id)
+            return (prevState as number[]).push(id)
+        })
+
+    const labelToButton = (label: Label, index: number) => {
         if (typeof label == "string")
-            return <SelectionButton group={group} text={label} />
-        return <SelectionButton group={group} label={label.label} text={label.text} />
+            return <SelectionButton
+                key={index}
+                id={index}
+                group={group}
+                text={label}
+                active={() => isActive(index)}
+                onClick={() => setActive(index)} />
+        return <SelectionButton
+            key={index}
+            id={index}
+            group={group}
+            {...label}
+            active={() => isActive(index)}
+            onClick={() => setActive(index)} />
     }
 
     return (
-        <ButtonGroupContext.Provider value={{ buttonState, setButtonState }}>
+        <div>
             {labels.map(labelToButton)}
-        </ButtonGroupContext.Provider>
+        </div>
     )
 }
