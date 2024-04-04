@@ -12,12 +12,13 @@ export type ButtonGroupType = {
 }
 
 interface ButtonGroupProps {
-    group: string,
     labels: Label[],
     type?: string,
+    onSubmit: () => void,
+    style: string,
 }
 
-export function ButtonGroup({ group, labels, type="single" }: ButtonGroupProps) {
+export function ButtonGroup({ labels, onSubmit, style, type="single" }: ButtonGroupProps) {
     const [buttonState, setButtonState] = useState<number | number[]>(() => {
         if (type == "single")
             return -1
@@ -40,23 +41,20 @@ export function ButtonGroup({ group, labels, type="single" }: ButtonGroupProps) 
         if (typeof label == "string")
             return <SelectionButton
                 key={index}
-                id={index}
-                group={group}
                 text={label}
-                active={() => isActive(index)}
+                active={isActive(index)}
                 onClick={() => setActive(index)} />
         return <SelectionButton
             key={index}
-            id={index}
-            group={group}
             {...label}
-            active={() => isActive(index)}
+            active={isActive(index)}
             onClick={() => setActive(index)} />
     }
 
     return (
-        <div>
+        <div className={style}>
             {labels.map(labelToButton)}
+            <button onClick={onSubmit}>submit</button>
         </div>
     )
 }

@@ -1,19 +1,15 @@
-import { ButtonGroup } from "./ButtonGroup"
-
 interface SelectionProps {
-    group: string,
     text: string,
     label?: string,
-    id: number,
-    active: () => boolean,
+    active: boolean,
     onClick: () => void
 }
 
-export function SelectionButton({ id, group, text, label, onClick }: SelectionProps) {
+export function SelectionButton({ text, label, active, onClick }: SelectionProps) {
     return (
-        <label>
+        <label className={active ? "text-2xl" : ""}>
             {label}
-            <button onClick={}>
+            <button onClick={onClick}>
                 {text}
             </button>
         </label>
