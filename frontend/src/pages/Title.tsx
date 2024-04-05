@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import ExperienceSlide from '@/components/ExperienceSlide'
 import LearnSlide from '@/components/LearnSlide'
 
-export function Home() {
+export function Title() {
     return (
         <div className="w-screen h-screen overflow-y-auto">
             <Navbar />
