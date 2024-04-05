@@ -5,7 +5,7 @@ import { ProgressBar } from '@/components/user_registration'
 const questions = [
     {
         question: "Which best describes you?",
-        answers: [
+        labels: [
             "Student",
             "Teacher",
             "Parent",
@@ -15,7 +15,7 @@ const questions = [
     },
     {
         question: "Select your English proficiency.",
-        answers: [
+        labels: [
             "New",
             "Beginner",
             "Intermediate",
@@ -26,7 +26,7 @@ const questions = [
         question: "Why do you want to learn English?",
         small: "select all that apply",
         type: "multiselect",
-        answers: [
+        labels: [
             "Education",
             "Connect with others",
             "Travel",
@@ -36,7 +36,7 @@ const questions = [
     },
     {
         question: "How did you hear about us?",
-        answers: [
+        labels: [
             "TikTok",
             "YouTube",
             "Instagram",

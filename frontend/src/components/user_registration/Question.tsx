@@ -1,20 +1,19 @@
-import { ButtonGroup } from "@/components/buttons/ButtonGroup"
+import { ButtonGroup, ButtonGroupProps } from "@/components/buttons/ButtonGroup"
 
-interface QuestionProps {
+interface QuestionProps extends ButtonGroupProps {
     question: string,
-    answers: string[],
     small?: string,
-    type?: string,
 }
 
-export function Question({ question, answers, small, type="single" }: QuestionProps) {
+export function Question(props: QuestionProps) {
+    const { question, labels, small, onSubmit, type="single" } = props
     //just style this for now :)
 
     return (
         <section className="flex flex-col">
             <h1>{question}</h1>
             {small && <p>{small}</p>}
-            <ButtonGroup group={question} labels={answers} />
+            <ButtonGroup labels={labels} type={type} onSubmit={onSubmit} />
         </section>
     )
 }

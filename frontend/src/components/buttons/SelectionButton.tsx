@@ -2,7 +2,8 @@ interface SelectionProps {
     text: string,
     label?: string,
     active: boolean,
-    onClick: () => void
+    onClick: () => void,
+    style?: string
 }
 
 export function SelectionButton({ text, label, active, onClick }: SelectionProps) {

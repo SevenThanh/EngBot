@@ -1,24 +1,20 @@
 import { useState } from "react"
 import { SelectionButton } from "./SelectionButton"
 
-type Label = {
+export type ButtonLabel = {
     label?: string,
     text: string
 } | string
 
-export type ButtonGroupType = {
-    buttonState: number,
-    setButtonState: (buttonState: number) => void
-}
-
-interface ButtonGroupProps {
-    labels: Label[],
-    type?: string,
+export interface ButtonGroupProps {
+    labels: ButtonLabel[],
     onSubmit: () => void,
-    style: string,
+    type: string,
+    style?: string,
+    buttonStyle?: string
 }
 
-export function ButtonGroup({ labels, onSubmit, style, type="single" }: ButtonGroupProps) {
+export function ButtonGroup({ labels, onSubmit, style, buttonStyle, type }: ButtonGroupProps) {
     const [buttonState, setButtonState] = useState<number | number[]>(() => {
         if (type == "single")
             return -1
@@ -37,16 +33,18 @@ export function ButtonGroup({ labels, onSubmit, style, type="single" }: ButtonGr
             return (prevState as number[]).push(id)
         })
 
-    const labelToButton = (label: Label, index: number) => {
+    const labelToButton = (label: ButtonLabel, index: number) => {
         if (typeof label == "string")
             return <SelectionButton
                 key={index}
                 text={label}
+                style={buttonStyle}
                 active={isActive(index)}
                 onClick={() => setActive(index)} />
         return <SelectionButton
             key={index}
             {...label}
+            style={buttonStyle}
             active={isActive(index)}
             onClick={() => setActive(index)} />
     }
