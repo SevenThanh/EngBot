@@ -3,7 +3,7 @@ import { Providers } from "@/contexts/Providers"
 import AppRoutes from './routes/'
 
 function App() {
-    console.log(Providers)
+    //console.log(Providers)
 
     return (
         <Providers>

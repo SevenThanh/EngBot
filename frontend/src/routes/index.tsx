@@ -8,7 +8,7 @@ export default function AppRoutes() {
 
     return (
         <Routes>
-            { userInfo.id !== null &&
+            { userInfo && userInfo.id !== "null" &&
                 <Route path="home" element={<Home />} />
             }
             <Route path="get-started" element={<UserRegistration />} />

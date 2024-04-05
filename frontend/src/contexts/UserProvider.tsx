@@ -34,7 +34,10 @@ export function UserProvider({ children }: React.PropsWithChildren) {
         }
 
         fetchUserData()
-            .then((res: User) => setUserInfo(res))
+            .then((res: User) => {
+                console.log("successfully init data with mock user")
+                setUserInfo(res)
+            })
             .catch(error => {
                 console.log((error as Error).message)
                 setUserInfo(NULL_USER)
