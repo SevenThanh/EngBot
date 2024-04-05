@@ -1,12 +1,14 @@
 import Icon from './Icon'
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
     return (
         <nav className="h-24 w-full p-6 flex flex-row justify-between">
             <Icon />
-            <button className="px-8 rounded-lg border-2 border-light-300 shadow">
+            <Link to="/login" className="flex flex-row items-center
+                px-8 rounded-lg border-2 border-light_300 shadow">
                 Log In
-            </button>
+            </Link>
         </nav>
     )
 }
