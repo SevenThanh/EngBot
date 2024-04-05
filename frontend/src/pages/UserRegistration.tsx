@@ -54,7 +54,7 @@ export function UserRegistration() {
             <ProgressBar progress={0} />
             <main className="grid grid-cols-2">
                 <img src="main.png" alt="ENGBOT"/>
-                <Question {...questions[questionData]}/>
+                <Question style="" buttonStyle="" {...questions[questionData]}/>
             </main>
         </div>
     )

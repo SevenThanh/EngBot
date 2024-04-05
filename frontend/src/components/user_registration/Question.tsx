@@ -6,14 +6,14 @@ interface QuestionProps extends ButtonGroupProps {
 }
 
 export function Question(props: QuestionProps) {
-    const { question, labels, small, onSubmit, type="single" } = props
+    const { question, labels, small, onSubmit, style, buttonStyle, type="single" } = props
     //just style this for now :)
 
     return (
         <section className="flex flex-col">
             <h1>{question}</h1>
             {small && <p>{small}</p>}
-            <ButtonGroup labels={labels} type={type} onSubmit={onSubmit} />
+            <ButtonGroup style={style} buttonStyle={buttonStyle} labels={labels} type={type} onSubmit={onSubmit} />
         </section>
     )
 }

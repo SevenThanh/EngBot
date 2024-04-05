@@ -6,9 +6,9 @@ interface SelectionProps {
     style?: string
 }
 
-export function SelectionButton({ text, label, active, onClick }: SelectionProps) {
+export function SelectionButton({ text, label, active, onClick, style }: SelectionProps) {
     return (
-        <label className={active ? "text-2xl" : ""}>
+        <label className={active ? "text-2xl " + style : style}>
             {label}
             <button onClick={onClick}>
                 {text}
