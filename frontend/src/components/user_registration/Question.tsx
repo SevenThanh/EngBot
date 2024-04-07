@@ -5,15 +5,28 @@ interface QuestionProps extends ButtonGroupProps {
     small?: string,
 }
 
-export function Question(props: QuestionProps) {
-    const { question, labels, small, onSubmit, style, buttonStyle, type="single" } = props
-    //just style this for now :)
-
+export function Question({
+    question,
+    labels,
+    small,
+    onSubmit,
+    style,
+    buttonStyle,
+    activeButtonStyle,
+    type="single"
+}: QuestionProps) {
     return (
         <section className="flex flex-col">
             <h1>{question}</h1>
             {small && <p>{small}</p>}
-            <ButtonGroup style={style} buttonStyle={buttonStyle} labels={labels} type={type} onSubmit={onSubmit} />
+            <ButtonGroup
+                labels={labels}
+                type={type}
+                onSubmit={onSubmit}
+                style={style}
+                buttonStyle={buttonStyle}
+                activeButtonStyle={activeButtonStyle}
+            />
         </section>
     )
 }

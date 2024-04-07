@@ -3,12 +3,13 @@ interface SelectionProps {
     label?: string,
     active: boolean,
     onClick: () => void,
-    style?: string
+    style?: string,
+    activeStyle?: string
 }
 
-export function SelectionButton({ text, label, active, onClick, style }: SelectionProps) {
+export function SelectionButton({ text, label, active, activeStyle, onClick, style }: SelectionProps) {
     return (
-        <label className={active ? "text-2xl " + style : style}>
+        <label className={active && activeStyle ? style + activeStyle : style}>
             {label}
             <button onClick={onClick}>
                 {text}

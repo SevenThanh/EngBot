@@ -101,7 +101,14 @@ export function UserRegistration() {
     }
 
     const questionElements = questions.map(
-        (elem: QuestionFormat) => <Question {...elem} onSubmit={submitQuestion} />
+        (elem: QuestionFormat) =>
+        <Question
+            {...elem}
+            onSubmit={submitQuestion}
+            style=""
+            buttonStyle=""
+            activeButtonStyle=""
+        />
     )
 
     return (

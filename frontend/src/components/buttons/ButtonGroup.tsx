@@ -11,10 +11,19 @@ export interface ButtonGroupProps {
     onSubmit: (active: number[]) => void,
     type?: string,
     style?: string,
-    buttonStyle?: string
+    buttonStyle?: string,
+    activeButtonStyle?: string
 }
 
-export function ButtonGroup({ labels, onSubmit, style, buttonStyle, type }: ButtonGroupProps) {
+export function ButtonGroup({
+    labels,
+    onSubmit,
+    style,
+    activeButtonStyle,
+    buttonStyle,
+    type
+}: ButtonGroupProps) {
+
     const [buttonState, setButtonState] = useState<number[]>([])
 
     const isActive = (id: number) => buttonState.includes(id)
@@ -38,14 +47,18 @@ export function ButtonGroup({ labels, onSubmit, style, buttonStyle, type }: Butt
                 key={index}
                 text={label}
                 style={buttonStyle}
+                activeStyle={activeButtonStyle}
                 active={isActive(index)}
-                onClick={() => setActive(index)} />
+                onClick={() => setActive(index)}
+            />
         return <SelectionButton
             key={index}
             {...label}
             style={buttonStyle}
+            activeStyle={activeButtonStyle}
             active={isActive(index)}
-            onClick={() => setActive(index)} />
+            onClick={() => setActive(index)}
+        />
     }
 
     return (
