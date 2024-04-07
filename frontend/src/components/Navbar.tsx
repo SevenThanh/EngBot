@@ -6,7 +6,7 @@ export default function Navbar() {
         <nav className="h-24 w-full p-6 flex flex-row justify-between">
             <Icon />
             <Link to="/login" className="flex flex-row items-center
-                px-8 rounded-lg border-2 border-light_300 shadow">
+                px-8 rounded-lg border-2 border-light-300 shadow">
                 Log In
             </Link>
         </nav>
