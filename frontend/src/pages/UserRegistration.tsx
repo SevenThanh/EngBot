@@ -61,23 +61,16 @@ export function UserRegistration() {
         proficiency: -1
     }
 
-    function submitQuestion(active: number | number[]) {
-        if (typeof active === "number" && active === -1)
-            return
-        if (typeof active === "object" && active.length === 0)
+    function submitQuestion(active: number[]) {
+        if (active.length === 0)
             return
 
         const currentQuestion = questions[questionNum]
         setQuestionNum(prevNum => prevNum + 1)
 
         if (currentQuestion.group) {
-            if (typeof active == "number") {
-                registrationData[currentQuestion.group] = currentQuestion.labels[active]
-            }
-            else { //multiselect
-                registrationData[currentQuestion.group] =
-                    active.map(index => currentQuestion.labels[index])
-            }
+            registrationData[currentQuestion.group] =
+                active.map(index => currentQuestion.labels[index])
             console.log(registrationData[currentQuestion.group])
         }
 

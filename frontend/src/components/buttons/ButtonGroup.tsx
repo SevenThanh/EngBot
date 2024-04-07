@@ -8,30 +8,29 @@ export type ButtonLabel = {
 
 export interface ButtonGroupProps {
     labels: ButtonLabel[],
-    onSubmit: (active: number | number[]) => void,
+    onSubmit: (active: number[]) => void,
     type?: string,
     style?: string,
     buttonStyle?: string
 }
 
 export function ButtonGroup({ labels, onSubmit, style, buttonStyle, type }: ButtonGroupProps) {
-    const [buttonState, setButtonState] = useState<number | number[]>(() => {
-        if (type == "single")
-            return -1
-        return []
-    })
+    const [buttonState, setButtonState] = useState<number[]>([])
 
-    const isActive = typeof buttonState === "number" ?
-        (id: number) => buttonState == id :
-        (id: number) => (buttonState as number[]).includes(id)
+    const isActive = (id: number) => buttonState.includes(id)
 
-    const setActive = typeof buttonState === "number" ?
-        (id: number) => setButtonState(id) :
-        (id: number) => setButtonState(prevState => {
-            if ((prevState as number[]).includes(id))
-                return (prevState as number[]).filter(elem => elem != id)
-            return (prevState as number[]).push(id)
-        })
+    function setActive(id: number) {
+        if (buttonState.length === 0 || type === "single") {
+            setButtonState([id])
+            return
+        }
+
+        if (buttonState.includes(id)) {
+            setButtonState(prevState => prevState.filter(elem => elem != id))
+            return
+        }
+        setButtonState(prevState => prevState.concat([id]))
+    }
 
     const labelToButton = (label: ButtonLabel, index: number) => {
         if (typeof label == "string")
