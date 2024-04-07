@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react"
+import { createContext, useState } from "react"
 import { User } from "@/types"
 
 export type UserContextType = {

@@ -2,7 +2,6 @@ import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Question, ProgressBar } from '@/components/user_registration'
 import { UserContext } from '@/contexts'
-import { User } from '@/types'
 
 interface QuestionFormat {
     question: string,
