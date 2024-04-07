@@ -4,6 +4,13 @@ import { Question, ProgressBar } from '@/components/user_registration'
 import { UserContext } from '@/contexts'
 import { User } from '@/types'
 
+interface QuestionFormat {
+    question: string,
+    labels: string[],
+    group?: string,
+    type?: string,
+}
+
 const questions = [
     {
         question: "Which best describes you?",
@@ -55,30 +62,35 @@ export function UserRegistration() {
     const [questionNum, setQuestionNum] = useState<number>(0);
     const { userInfo, setUserInfo } = useContext(UserContext)
     const navigate = useNavigate()
-    const registrationData: User = {
-        username: "unknown",
-        type: "unknown",
-        proficiency: -1
-    }
 
     function submitQuestion(active: number[]) {
         if (active.length === 0)
             return
 
-        const currentQuestion = questions[questionNum]
-        setQuestionNum(prevNum => prevNum + 1)
+        const currentQuestion: QuestionFormat = questions[questionNum]
 
         if (currentQuestion.group) {
-            registrationData[currentQuestion.group] =
-                active.map(index => currentQuestion.labels[index])
-            console.log(registrationData[currentQuestion.group])
+            //do smthn about single selections
+            if (!currentQuestion.type || currentQuestion.type === "single")
+                setUserInfo({
+                    ...userInfo,
+                    [currentQuestion.group]: currentQuestion.labels[active[0]]
+                })
+            else
+                setUserInfo({
+                    ...userInfo,
+                    [currentQuestion.group]:
+                        active.map(index => currentQuestion.labels[index])
+                })
         }
 
-        if (questionNum == questionsCount) {
-            setUserInfo(registrationData as User)
+        if (questionNum == questionsCount - 1) {
             console.log(userInfo)
-            navigate('home')
+            navigate('/home')
+            return
         }
+
+        setQuestionNum(prevNum => prevNum + 1)
     }
 
     return (
