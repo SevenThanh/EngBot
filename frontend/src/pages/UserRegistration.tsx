@@ -53,7 +53,7 @@ const questionsCount = questions.length
 
 export function UserRegistration() {
     const [questionNum, setQuestionNum] = useState<number>(0);
-    const { setUserInfo } = useContext(UserContext)
+    const { userInfo, setUserInfo } = useContext(UserContext)
     const navigate = useNavigate()
     const registrationData: User = {
         username: "unknown",
@@ -83,6 +83,7 @@ export function UserRegistration() {
 
         if (questionNum == questionsCount) {
             setUserInfo(registrationData as User)
+            console.log(userInfo)
             navigate('home')
         }
     }
