@@ -17,14 +17,15 @@ export function Home() {
         fetchUserData()
             .then((res: User) => {
                 console.log("successfully init data with mock user")
-                setUserInfo(res)
+                if (!userInfo)
+                    setUserInfo(res)
             })
             .catch(error => {
                 console.log((error as Error).message)
                 setError(error)
             })
         setLoading(false)
-    }, [setUserInfo])
+    }, [userInfo, setUserInfo])
 
     if (loading)
         return <main>loading...</main>
@@ -33,10 +34,14 @@ export function Home() {
     if (!userInfo)
         return <main>user not found</main>
 
+    const displayUser: React.ReactNode[] = []
+    for (const field in userInfo)
+        displayUser.push(<p>{field}: {(userInfo[field] as string | string[]).toString()}</p>)
+
     return (
         <div>
             <main>
-                {userInfo.username}
+                {displayUser}
             </main>
         </div>
     )
