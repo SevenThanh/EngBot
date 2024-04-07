@@ -15,11 +15,13 @@ export interface ButtonGroupProps {
 }
 
 export function ButtonGroup({ labels, onSubmit, style, buttonStyle, type }: ButtonGroupProps) {
-    const [buttonState, setButtonState] = useState<number | number[]>(() => {
+    const [buttonState, setButtonState] = useState<number | number[]>(resetButtonState)
+
+    function resetButtonState() {
         if (type == "single")
             return -1
         return []
-    })
+    }
 
     const isActive = type == "single" ?
         (id: number) => buttonState == id :
@@ -52,7 +54,10 @@ export function ButtonGroup({ labels, onSubmit, style, buttonStyle, type }: Butt
     return (
         <div className={style}>
             {labels.map(labelToButton)}
-            <button onClick={() => onSubmit(buttonState)}>submit</button>
+            <button onClick={() => {
+                onSubmit(buttonState)
+                setButtonState(resetButtonState)
+            }}>submit</button>
         </div>
     )
 }

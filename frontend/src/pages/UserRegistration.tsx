@@ -62,24 +62,28 @@ export function UserRegistration() {
     }
 
     function submitQuestion(active: number | number[]) {
+        if (typeof active === "number" && active === -1)
+            return
+        if (typeof active === "object" && active.length === 0)
+            return
+
         const currentQuestion = questions[questionNum]
-        setQuestionNum(prevNum => prevNum++)
+        setQuestionNum(prevNum => prevNum + 1)
 
         if (currentQuestion.group) {
             if (typeof active == "number") {
-                console.log(currentQuestion.labels[active])
                 registrationData[currentQuestion.group] = currentQuestion.labels[active]
             }
             else { //multiselect
                 registrationData[currentQuestion.group] =
                     active.map(index => currentQuestion.labels[index])
             }
+            console.log(registrationData[currentQuestion.group])
         }
 
         if (questionNum == questionsCount) {
             setUserInfo(registrationData as User)
             navigate('home')
-            return
         }
     }
 
