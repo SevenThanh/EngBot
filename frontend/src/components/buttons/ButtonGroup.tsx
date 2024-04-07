@@ -8,8 +8,8 @@ export type ButtonLabel = {
 
 export interface ButtonGroupProps {
     labels: ButtonLabel[],
-    onSubmit: () => void,
-    type: string,
+    onSubmit: (active: number | number[]) => void,
+    type?: string,
     style?: string,
     buttonStyle?: string
 }
@@ -52,7 +52,7 @@ export function ButtonGroup({ labels, onSubmit, style, buttonStyle, type }: Butt
     return (
         <div className={style}>
             {labels.map(labelToButton)}
-            <button onClick={onSubmit}>submit</button>
+            <button onClick={() => onSubmit(buttonState)}>submit</button>
         </div>
     )
 }
