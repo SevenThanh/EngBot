@@ -12,6 +12,7 @@ export interface ButtonGroupProps {
     type?: string,
     style?: string,
     buttonStyle?: string,
+    submitStyle?: string,
     activeButtonStyle?: string
 }
 
@@ -21,6 +22,7 @@ export function ButtonGroup({
     style,
     activeButtonStyle,
     buttonStyle,
+    submitStyle,
     type
 }: ButtonGroupProps) {
 
@@ -64,7 +66,10 @@ export function ButtonGroup({
     return (
         <div className={style}>
             {labels.map(labelToButton)}
-            <button onClick={() => onSubmit(buttonState)}>submit</button>
+            <button onClick={() => onSubmit(buttonState)}
+                className={submitStyle}>
+                submit
+            </button>
         </div>
     )
 }

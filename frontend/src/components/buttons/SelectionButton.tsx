@@ -9,7 +9,7 @@ interface SelectionProps {
 
 export function SelectionButton({ text, label, active, activeStyle, onClick, style }: SelectionProps) {
     return (
-        <label className={active && activeStyle ? style + activeStyle : style}>
+        <label className={active && activeStyle ? activeStyle : style}>
             {label}
             <button onClick={onClick}>
                 {text}

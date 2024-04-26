@@ -1,8 +1,8 @@
 import { ButtonGroup, ButtonGroupProps } from "@/components/buttons/ButtonGroup"
 
 interface QuestionProps extends ButtonGroupProps {
-    question: string,
-    small?: string,
+    question: string
+    small?: string
 }
 
 export function Question({
@@ -12,11 +12,12 @@ export function Question({
     onSubmit,
     style,
     buttonStyle,
+    submitStyle,
     activeButtonStyle,
     type="single"
 }: QuestionProps) {
     return (
-        <section className="flex flex-col">
+        <>
             <h1>{question}</h1>
             {small && <p>{small}</p>}
             <ButtonGroup
@@ -24,9 +25,10 @@ export function Question({
                 type={type}
                 onSubmit={onSubmit}
                 style={style}
+                submitStyle={submitStyle}
                 buttonStyle={buttonStyle}
                 activeButtonStyle={activeButtonStyle}
             />
-        </section>
+        </>
     )
 }
