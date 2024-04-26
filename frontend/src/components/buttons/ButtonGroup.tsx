@@ -6,28 +6,29 @@ export type ButtonLabel = {
     text: string
 } | string
 
+interface ButtonGroupStyle {
+    buttonStyle: string,
+    wrapperStyle: string,
+    submitStyle?: string,
+    activeStyle?: string
+}
+
 export interface ButtonGroupProps {
     labels: ButtonLabel[],
     onSubmit: (active: number[]) => void,
+    style: ButtonGroupStyle,
     type?: string,
-    style?: string,
-    buttonStyle?: string,
-    submitStyle?: string,
-    activeButtonStyle?: string
 }
 
 export function ButtonGroup({
     labels,
     onSubmit,
     style,
-    activeButtonStyle,
-    buttonStyle,
-    submitStyle,
     type
 }: ButtonGroupProps) {
 
+    const { buttonStyle, wrapperStyle, submitStyle, activeStyle } = style
     const [buttonState, setButtonState] = useState<number[]>([])
-
     const isActive = (id: number) => buttonState.includes(id)
 
     function setActive(id: number) {
@@ -49,7 +50,7 @@ export function ButtonGroup({
                 key={index}
                 text={label}
                 style={buttonStyle}
-                activeStyle={activeButtonStyle}
+                activeStyle={activeStyle}
                 active={isActive(index)}
                 onClick={() => setActive(index)}
             />
@@ -57,14 +58,14 @@ export function ButtonGroup({
             key={index}
             {...label}
             style={buttonStyle}
-            activeStyle={activeButtonStyle}
+            activeStyle={activeStyle}
             active={isActive(index)}
             onClick={() => setActive(index)}
         />
     }
 
     return (
-        <div className={style}>
+        <div className={wrapperStyle}>
             {labels.map(labelToButton)}
             <button onClick={() => onSubmit(buttonState)}
                 className={submitStyle}>

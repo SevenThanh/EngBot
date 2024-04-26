@@ -105,10 +105,12 @@ export function UserRegistration() {
         <Question
             {...elem}
             onSubmit={submitQuestion}
-            style="flex flex-col items-center my-8 md:w-[70%] w-max-[400px]"
-            submitStyle="px-4 py-2 my-2 bg-engbot-700 text-neutral-300 w-full rounded-xl text-center"
-            buttonStyle="px-4 py-2 my-2 bg-engbot-100 text-engbot-700 w-full rounded-xl text-center"
-            activeButtonStyle="px-4 py-2 my-2 bg-sky-600 text-neutral-100 w-full rounded-xl text-center"
+            style={{
+                wrapperStyle: "flex flex-col items-center my-8 md:w-[70%] w-max-[400px]",
+                submitStyle: "px-4 py-2 my-2 bg-engbot-700 text-neutral-300 w-full rounded-xl text-center",
+                buttonStyle: "px-4 py-2 my-2 bg-engbot-100 text-engbot-700 w-full rounded-xl text-center",
+                activeStyle: "px-4 py-2 my-2 bg-sky-600 text-neutral-100 w-full rounded-xl text-center"
+            }}
         />
     )
 

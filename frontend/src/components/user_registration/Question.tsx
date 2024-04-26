@@ -11,9 +11,6 @@ export function Question({
     small,
     onSubmit,
     style,
-    buttonStyle,
-    submitStyle,
-    activeButtonStyle,
     type="single"
 }: QuestionProps) {
     return (
@@ -25,9 +22,6 @@ export function Question({
                 type={type}
                 onSubmit={onSubmit}
                 style={style}
-                submitStyle={submitStyle}
-                buttonStyle={buttonStyle}
-                activeButtonStyle={activeButtonStyle}
             />
         </>
     )
