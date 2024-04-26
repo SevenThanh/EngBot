@@ -1,7 +1,7 @@
-import Icon from './Icon'
+import { Icon } from './Icon'
 import { Link } from "react-router-dom"
 
-export default function Navbar() {
+export function Navbar() {
     return (
         <nav className="h-24 w-full p-6 flex flex-row justify-between">
             <Icon />

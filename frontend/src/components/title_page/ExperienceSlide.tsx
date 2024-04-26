@@ -1,4 +1,4 @@
-export default function ExperienceSlide() {
+export function ExperienceSlide() {
     return (
         <div className="w-full min-h-screen bg-background flex flex-col pb-12">
             <div className="w-full grow"></div>

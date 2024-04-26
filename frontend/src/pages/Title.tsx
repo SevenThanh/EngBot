@@ -1,8 +1,4 @@
-import Navbar from '@/components/Navbar'
-import Hero from '@/components/Hero'
-import Footer from '@/components/Footer'
-import ExperienceSlide from '@/components/ExperienceSlide'
-import LearnSlide from '@/components/LearnSlide'
+import { Navbar, Hero, Footer, ExperienceSlide, LearnSlide } from "@/components/title_page"
 
 export function Title() {
     return (

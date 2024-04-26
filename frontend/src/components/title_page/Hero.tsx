@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function Hero() {
+export function Hero() {
     return (
         <div className="w-full py-1/10 px-1/10 bg-engbot-gradient
                         flex flex-row gap-24 justify-center">

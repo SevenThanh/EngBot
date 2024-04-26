@@ -1,0 +1,6 @@
+export { ExperienceSlide } from "./ExperienceSlide"
+export { Footer } from "./Footer"
+export { Hero } from "./Hero"
+export { Icon } from "./Icon"
+export { LearnSlide } from "./LearnSlide"
+export { Navbar } from "./Navbar"

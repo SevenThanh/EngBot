@@ -1,6 +1,6 @@
 import { BsTencentQq } from 'react-icons/bs'
 
-export default function Footer() {
+export function Footer() {
     return (
         <footer className="min-h-24 bg-neutral-300 grid grid-cols-3 p-6">
             <div className="border-r flex flex-col items-center">
