@@ -7,16 +7,23 @@ export default {
       regular: ['Roboto Condensed']
     },
 
-    colors: {
-      'neutral-100': '#f9fafb',
-      'neutral-300': '#e5e5e5',
-      'light-100': '#c1ebf4',
-      'light-300': '#9fdfe2',
-      'dark-500': '#2030b8',
-      'dark-700': '#0b1154',
-    },
-
     extend: {
+
+      colors: {
+        'neutral': {
+          100: '#f9fafb',
+          300: '#e5e5e5',
+        },
+        'engbot': {
+          100: '#c1ebf4',
+          DEFAULT: '#9fdfe2',
+          300: '#9fdfe2',
+          400: '#93d8ef',
+          500: '#2030b8',
+          700: '#0b1154',
+        }
+      },
+
       maxWidth: {
         '1/2': '50%',
         '1/3': '33%',

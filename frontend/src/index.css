@@ -33,7 +33,7 @@ body {
   }
 
   strong {
-    @apply text-dark-500;
+    @apply text-engbot-500;
   }
 }
 
