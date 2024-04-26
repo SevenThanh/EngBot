@@ -12,7 +12,7 @@ export function Hero() {
                     <strong> just for you </strong>
                 </p>
                 <Link to="/get-started">
-                    <button className="text-3xl px-8 py-4 rounded-lg bg-light-100 shadow">
+                    <button className="text-3xl px-8 py-4 rounded-lg bg-engbot-100 shadow">
                         Get Started
                     </button>
                 </Link>

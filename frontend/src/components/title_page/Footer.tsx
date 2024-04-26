@@ -3,16 +3,16 @@ import { BsTencentQq } from 'react-icons/bs'
 export function Footer() {
     return (
         <footer className="min-h-24 bg-neutral-300 grid grid-cols-3 p-6">
-            <div className="border-r flex flex-col items-center">
-                <BsTencentQq size={80} className="p-2 border-4 border-blue rounded-xl" />
+            <div className="border-r-2 border-black flex flex-col items-center">
+                <BsTencentQq size={80} className="p-2 border-4 border-black rounded-xl" />
                 <p className="text-xl">Real-Life Scenarios</p>
             </div>
             <div className="flex flex-col items-center">
                 <p className="text-xl">Practice Lessons</p>
-                <BsTencentQq size={80} className="p-2 border-4 border-blue rounded-xl" />
+                <BsTencentQq size={80} className="p-2 border-4 border-black rounded-xl" />
             </div>
-            <div className="border-l flex flex-col items-center">
-                <BsTencentQq size={80} className="p-2 border-4 border-blue rounded-xl" />
+            <div className="border-l-2 border-black flex flex-col items-center">
+                <BsTencentQq size={80} className="p-2 border-4 border-black rounded-xl" />
                 <p className="text-xl">AI Grammar Check</p>
             </div>
         </footer>
