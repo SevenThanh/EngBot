@@ -1,24 +1,6 @@
 import { useState } from "react"
-import { SelectionButton } from "./SelectionButton"
-
-export type ButtonLabel = {
-    label?: string,
-    text: string
-} | string
-
-interface ButtonGroupStyle {
-    buttonStyle: string,
-    wrapperStyle: string,
-    submitStyle?: string,
-    activeStyle?: string
-}
-
-export interface ButtonGroupProps {
-    labels: ButtonLabel[],
-    onSubmit: (active: number[]) => void,
-    style: ButtonGroupStyle,
-    type?: string,
-}
+import { ButtonLabel, ButtonGroupProps } from "./types"
+import { SelectionButton } from "./"
 
 export function ButtonGroup({
     labels,
