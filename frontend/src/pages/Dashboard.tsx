@@ -3,7 +3,7 @@ import { UserContext } from "@/contexts"
 import { User } from "@/types"
 import { MOCK_USER } from "@/lib/mock_data"
 
-export function Home() {
+export function Dashboard() {
     const { userInfo, setUserInfo } = useContext(UserContext)
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<Error>(null!)
@@ -15,10 +15,13 @@ export function Home() {
         }
 
         fetchUserData()
-            .then((res: User) => {
+            .then(res => {
                 console.log("successfully init data with mock user")
                 if (!userInfo)
-                    setUserInfo(res)
+                    setUserInfo({
+                        ...res,
+                        ...userInfo
+                    })
             })
             .catch(error => {
                 console.log((error as Error).message)

@@ -93,7 +93,7 @@ export function UserRegistration() {
 
         if (questionNum == questionsCount - 1) {
             console.log(userInfo)
-            navigate('/home')
+            navigate('/dashboard')
             return
         }
 
