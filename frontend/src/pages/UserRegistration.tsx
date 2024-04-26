@@ -105,7 +105,7 @@ export function UserRegistration() {
         <Question
             {...elem}
             onSubmit={submitQuestion}
-            style="flex flex-col items-center my-8"
+            style="flex flex-col items-center my-8 md:w-[70%] w-max-[400px]"
             submitStyle="px-4 py-2 my-2 bg-engbot-700 text-neutral-300 w-full rounded-xl text-center"
             buttonStyle="px-4 py-2 my-2 bg-engbot-100 text-engbot-700 w-full rounded-xl text-center"
             activeButtonStyle="px-4 py-2 my-2 bg-sky-600 text-neutral-100 w-full rounded-xl text-center"
@@ -116,8 +116,9 @@ export function UserRegistration() {
         <div className="w-screen h-screen bg-engbot-gradient overflow-auto">
             <ProgressBar progress={0} />
             <main className="grid grid-cols-2 h-full w-full py-8 px-12">
-                <img src="main.png" alt="ENGBOT" className="m-auto"/>
-                <div className="flex flex-col relative my-auto items-center text-3xl bg-engbot-400 py-8 px-12 rounded-3xl">
+                <img src="main.png" alt="ENGBOT" className="m-auto w-[70%] lg:w-[40%] object-contain"/>
+                <div className="flex flex-col relative my-auto items-center
+                    text-3xl bg-engbot-400 py-8 px-12 rounded-3xl">
                     {questionElements[questionNum]}
                     { questionNum ?
                         <p onClick={() => setQuestionNum(prevNum => prevNum - 1)} className="cursor-pointer">
