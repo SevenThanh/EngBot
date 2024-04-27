@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react"
 import { AuthContext, UserContext } from "@/contexts"
 import { LOADING_STATUS, UserAuth } from "@/types"
 import { MOCK_USER } from "@/lib/mock_data"
+import { Navbar, Sidebar, Panel } from "@/components/dashboard"
 
 export function Dashboard() {
     const userAuth = useContext(AuthContext)
@@ -42,10 +43,16 @@ export function Dashboard() {
         displayUser.push(<p>{field}: {(userInfo[field] as string | string[]).toString()}</p>)
 
     return (
-        <div>
-            <main>
-                {displayUser}
-            </main>
+        <div className="w-screen h-screen overflow-y-auto">
+            <Navbar />
+            <section className="flex flex-row">
+                <Sidebar />
+                <main>
+                    <h1 className="text-4xl font-bold">MAIN</h1>
+                    {displayUser}
+                    <Panel />
+                </main>
+            </section>
         </div>
     )
 }
