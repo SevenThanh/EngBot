@@ -1,9 +1,10 @@
 import { useContext, useState, useEffect } from "react"
-import { UserContext } from "@/contexts"
-import { LOADING_STATUS } from "@/types"
+import { AuthContext, UserContext } from "@/contexts"
+import { LOADING_STATUS, UserAuth } from "@/types"
 import { MOCK_USER } from "@/lib/mock_data"
 
 export function Dashboard() {
+    const userAuth = useContext(AuthContext)
     const { userInfo, setUserInfo } = useContext(UserContext)
     const [status, setStatus] = useState<LOADING_STATUS>(1)
 
@@ -18,6 +19,7 @@ export function Dashboard() {
                 console.log("successfully init data with mock user")
                 if (!userInfo)
                     setUserInfo(res)
+                setStatus(0)
             })
 
             .catch(error => {
@@ -34,6 +36,8 @@ export function Dashboard() {
         return <main>user not found</main>
 
     const displayUser: React.ReactNode[] = []
+    for (const field in userAuth)
+        displayUser.push(<p>{field}: {(userAuth[field as keyof UserAuth] as string | string[]).toString()}</p>)
     for (const field in userInfo)
         displayUser.push(<p>{field}: {(userInfo[field] as string | string[]).toString()}</p>)
 

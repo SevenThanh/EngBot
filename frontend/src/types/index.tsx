@@ -1,4 +1,4 @@
-export type LOADING_STATUS = 0 | 1 | string
+export type LOADING_STATUS = 0 | 1 | string;
 //0: loading success
 //1: currently loading
 //string: error message
