@@ -1,9 +1,9 @@
 export async function MOCK_USER() {
     return {
-        id: "kevinthuhstink",
-        username: "kevinthuhstink",
-        type: "student",
-        proficiency: 0
+        type: "Other",
+        proficiency: "New",
+        learning_reason: "Other",
+        heard_from: "Other",
     }
 }
 

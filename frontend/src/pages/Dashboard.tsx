@@ -1,12 +1,11 @@
 import { useContext, useState, useEffect } from "react"
 import { UserContext } from "@/contexts"
-import { User } from "@/types"
+import { LOADING_STATUS } from "@/types"
 import { MOCK_USER } from "@/lib/mock_data"
 
 export function Dashboard() {
     const { userInfo, setUserInfo } = useContext(UserContext)
-    const [loading, setLoading] = useState<boolean>(true)
-    const [error, setError] = useState<Error>(null!)
+    const [status, setStatus] = useState<LOADING_STATUS>(1)
 
     useEffect(() => {
         async function fetchUserData() {
@@ -18,22 +17,19 @@ export function Dashboard() {
             .then(res => {
                 console.log("successfully init data with mock user")
                 if (!userInfo)
-                    setUserInfo({
-                        ...res,
-                        ...userInfo
-                    })
+                    setUserInfo(res)
             })
+
             .catch(error => {
-                console.log((error as Error).message)
-                setError(error)
+                console.log(error.message)
+                setStatus(error.message)
             })
-        setLoading(false)
     }, [userInfo, setUserInfo])
 
-    if (loading)
+    if (typeof status === "string")
+        return <main>{status}</main>
+    if (status)
         return <main>loading...</main>
-    if (error)
-        return <main>{error.message}</main>
     if (!userInfo)
         return <main>user not found</main>
 

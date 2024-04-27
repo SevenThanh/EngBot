@@ -5,9 +5,9 @@ export type LOADING_STATUS = 0 | 1 | string
 
 export type User = {
     type: string; //student, parent, etc.
-    proficiency: number;
-    learning_reason: number;
-    heard_from: number;
+    proficiency: string;
+    learning_reason: string;
+    heard_from: string;
     [key: string]: unknown;
 };
 
