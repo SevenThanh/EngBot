@@ -6,3 +6,11 @@ export async function MOCK_USER() {
         proficiency: 0
     }
 }
+
+export async function MOCK_AUTH() {
+    return {
+        id: "0",
+        username: "mock-user!",
+        password: "mock-password!"
+    }
+}

@@ -1,7 +1,18 @@
+export type LOADING_STATUS = 0 | 1 | string
+//0: loading success
+//1: currently loading
+//string: error message
+
 export type User = {
-    id?: string, //optional FOR NOW
-    username: string, //password will be handled with firebase authentication
-    type: string, //student, parent, etc.
-    proficiency: number, //english skill elo
-    [key: string]: unknown
-}
+    type: string; //student, parent, etc.
+    proficiency: number;
+    learning_reason: number;
+    heard_from: number;
+    [key: string]: unknown;
+};
+
+export type UserAuth = {
+    id: string;
+    username: string;
+    password: string;
+};
