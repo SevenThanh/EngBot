@@ -1,11 +1,13 @@
 import { useForm } from 'react-hook-form'
-import { ErrorMessage } from '@hookform/error-message'
+import { FormField } from "@/components/form"
+import { usernameConstraints, passwordConstraints } from "@/components/form/constraints"
 import { useNavigate } from 'react-router-dom'
 
 //will make this more dev friendly in the future
 export function Login() {
     const { register, handleSubmit, formState } = useForm()
     const navigate = useNavigate()
+
 
     function onSubmit() {
         try {
@@ -24,42 +26,24 @@ export function Login() {
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <div className="w-full">
-                    <input
+                    <FormField
                         type="text"
                         placeholder="Username"
-                        className="w-full py-2 px-4 bg-background_gray border rounded"
-                        {...register("username", {
-                            required: "Username must not be empty",
-                            maxLength: {
-                                value: 30,
-                                message: "Username must be shorter than 30 characters",
-                            },
-                            minLength: {
-                                value: 3,
-                            message: "Username must be longer than 3 characters",
-                            }
-                        })}
-                    />
-                    <ErrorMessage
-                        as="span"
-                        className="text-red-500"
+                        style="w-full py-2 px-4 bg-background_gray border rounded"
+                        registration={register("username", usernameConstraints)}
+                        errorStyle="text-red-500"
                         errors={formState.errors}
-                        name="username" />
+                     />
                 </div>
                 <div className="w-full">
-                    <input
+                    <FormField
                         type="password"
                         placeholder="Password"
-                        className="w-full py-2 px-4 bg-background_gray border rounded"
-                        {...register("password", {
-                            required: "Password must not be empty",
-                        })}
-                    />
-                    <ErrorMessage
-                        as="span"
-                        className="text-red-500"
+                        style="w-full py-2 px-4 bg-background_gray border rounded"
+                        registration={register("password", passwordConstraints)}
+                        errorStyle="text-red-500"
                         errors={formState.errors}
-                        name="password" />
+                     />
                 </div>
                 <button
                     type="submit"
