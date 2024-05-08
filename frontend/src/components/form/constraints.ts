@@ -28,3 +28,11 @@ export const passwordConstraints = {
         message: "Password must contain at least one uppercase letter, one lowercase letter, and one number"
     }
 }
+
+export const emailConstraints = {
+    required: "Please enter an email",
+    pattern: {
+        value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+        message: "Please enter a valid email address"
+    }
+}
