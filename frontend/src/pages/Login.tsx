@@ -1,9 +1,7 @@
 import { useForm } from 'react-hook-form'
-import { FormField, SubmitButton } from "@/components/form"
-import { usernameConstraints, passwordConstraints } from "@/components/form/constraints"
+import { UsernameField, PasswordField, SubmitButton } from "@/components/form"
 import { useNavigate } from 'react-router-dom'
 
-//will make this more dev friendly in the future
 export function Login() {
     const { register, handleSubmit, formState } = useForm()
     const navigate = useNavigate()
@@ -18,6 +16,17 @@ export function Login() {
         }
     }
 
+    /*
+     * since both password and username input fields use identical registration
+     * functions, pull from the same formState, and are styled the same,
+     * i grouped them into one fieldProps variable
+     */
+    const fieldProps = {
+        style: "w-full py-2 px-4 bg-background_gray border rounded",
+        register: register,
+        errors: formState.errors
+    }
+
     return (
         <main className="w-screen h-screen bg-gradient-to-r from-light_100 to-background overflow-auto">
             <h1 className="text-center text-6xl pt-[10vh]">Login to EngBot</h1>
@@ -26,24 +35,10 @@ export function Login() {
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <div className="w-full">
-                    <FormField
-                        type="text"
-                        placeholder="Username"
-                        style="w-full py-2 px-4 bg-background_gray border rounded"
-                        registration={register("username", usernameConstraints)}
-                        errorStyle="text-red-500"
-                        errors={formState.errors}
-                     />
+                    <UsernameField {...fieldProps} />
                 </div>
                 <div className="w-full">
-                    <FormField
-                        type="password"
-                        placeholder="Password"
-                        style="w-full py-2 px-4 bg-background_gray border rounded"
-                        registration={register("password", passwordConstraints)}
-                        errorStyle="text-red-500"
-                        errors={formState.errors}
-                     />
+                    <PasswordField {...fieldProps} />
                 </div>
                 <SubmitButton
                     text="Login"
