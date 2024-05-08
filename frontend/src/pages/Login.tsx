@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { FormField } from "@/components/form"
+import { FormField, SubmitButton } from "@/components/form"
 import { usernameConstraints, passwordConstraints } from "@/components/form/constraints"
 import { useNavigate } from 'react-router-dom'
 
@@ -45,12 +45,10 @@ export function Login() {
                         errors={formState.errors}
                      />
                 </div>
-                <button
-                    type="submit"
-                    className="py-3 rounded-lg border-2 border-light_300 w-1/2 shadow text-2xl"
-                >
-                    Login
-                </button>
+                <SubmitButton
+                    text="Login"
+                    style="py-3 rounded-lg border-2 border-light_300 w-1/2 shadow text-2xl"
+                />
             </form>
         </main>
     )
