@@ -10,6 +10,10 @@ export const usernameConstraints = {
     minLength: {
         value: 3,
         message: "Username must be longer than 3 characters",
+    },
+    pattern:  {
+        value: /^[a-zA-Z0-9]*$/,
+        message: "Username must not contain any special characters"
     }
 }
 
