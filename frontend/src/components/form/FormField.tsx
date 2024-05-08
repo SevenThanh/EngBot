@@ -1,13 +1,18 @@
+import { RegisterOptions } from "react-hook-form"
 import { ErrorMessage } from '@hookform/error-message'
 
-interface FormFieldProps {
+export type RegistrationFunction = (name: string, options?: RegisterOptions) => FieldRegistration
+
+export type FieldRegistration = {
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
+    onBlur: React.FocusEventHandler<HTMLInputElement>;
+    ref: React.Ref<HTMLInputElement>;
+    name: string
+}
+
+export interface FormFieldProps {
     type: string
-    registration: {
-        onChange: React.ChangeEventHandler<HTMLInputElement>
-        onBlur: React.FocusEventHandler<HTMLInputElement>
-        ref: React.Ref<HTMLInputElement>
-        name: string
-    }
+    registration: FieldRegistration
     style?: string
     placeholder?: string
     errorStyle?: string
@@ -33,13 +38,13 @@ export function FormField({
                 {...registration}
             />
             { hasError &&
-                <ErrorMessage
-                    as="span"
-                    className={errorStyle}
-                    name={registration.name}
-                    errors={errors}
-                />
-            }
-        </>
+            <ErrorMessage
+                as="span"
+                className={errorStyle}
+                name={registration.name}
+                errors={errors}
+            />
+        }
+    </>
     )
 }
