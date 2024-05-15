@@ -22,7 +22,7 @@ export function Login() {
      * i grouped them into one fieldProps variable
      */
     const fieldProps = {
-        style: "w-full py-2 px-4 bg-background_gray border rounded",
+        style: "w-full py-2 px-4 bg-neutral-100 border border-engbot rounded",
         register: register,
         errors: formState.errors
     }
@@ -42,7 +42,7 @@ export function Login() {
                 </div>
                 <SubmitButton
                     text="Login"
-                    style="py-3 rounded-lg border-2 border-light_300 w-1/2 shadow text-2xl"
+                    style="py-3 rounded-lg border-2 border-engbot w-1/2 shadow text-2xl"
                 />
             </form>
         </main>

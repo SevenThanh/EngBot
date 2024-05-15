@@ -10,10 +10,6 @@ export default {
     extend: {
 
       colors: {
-        'neutral': {
-          100: '#f9fafb',
-          300: '#e5e5e5',
-        },
         'engbot': {
           100: '#c1ebf4',
           DEFAULT: '#9fdfe2',
