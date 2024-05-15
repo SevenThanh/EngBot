@@ -1,4 +1,5 @@
 export { Title } from "./Title"
 export { UserRegistration } from "./UserRegistration"
+export { Signup } from "./Signup"
 export { Login } from "./Login"
 export { Dashboard } from "./Dashboard"

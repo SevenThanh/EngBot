@@ -10,7 +10,7 @@ interface PasswordFieldProps extends Partial<FormFieldProps> {
     register: RegistrationFunction | FieldRegistration
 }
 
-export function PasswordField({
+export function EmailField({
     style,
     register,
     errors,
