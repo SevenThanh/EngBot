@@ -11,7 +11,7 @@ export type User = {
     [key: string]: unknown;
 };
 
-export type UserAuth = {
+export type UserCredentials = {
     id: string;
     username: string;
     password: string;

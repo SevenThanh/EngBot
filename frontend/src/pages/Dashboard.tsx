@@ -1,11 +1,11 @@
 import { useContext, useState, useEffect } from "react"
 import { AuthContext, UserContext } from "@/contexts"
-import { LOADING_STATUS, UserAuth } from "@/types"
+import { LOADING_STATUS, UserCredentials } from "@/types"
 import { MOCK_USER } from "@/lib/mock_data"
 import { Navbar, Sidebar, Panel } from "@/components/dashboard"
 
 export function Dashboard() {
-    const userAuth = useContext(AuthContext)
+    const userCredentials = useContext(AuthContext)
     const { userInfo, setUserInfo } = useContext(UserContext)
     const [status, setStatus] = useState<LOADING_STATUS>(1)
 
@@ -37,8 +37,8 @@ export function Dashboard() {
         return <main>user not found</main>
 
     const displayUser: React.ReactNode[] = []
-    for (const field in userAuth)
-        displayUser.push(<p>{field}: {(userAuth[field as keyof UserAuth] as string | string[]).toString()}</p>)
+    for (const field in userCredentials)
+        displayUser.push(<p>{field}: {(userCredentials[field as keyof UserCredentials] as string | string[]).toString()}</p>)
     for (const field in userInfo)
         displayUser.push(<p>{field}: {(userInfo[field] as string | string[]).toString()}</p>)
 

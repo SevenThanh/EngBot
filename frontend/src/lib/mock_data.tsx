@@ -7,7 +7,7 @@ export async function MOCK_USER() {
     }
 }
 
-export async function MOCK_AUTH() {
+export async function MOCK_USER_CREDENTIALS() {
     return {
         id: "0",
         username: "mock-user!",
