@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect } from "react"
 import { LOADING_STATUS, UserAuth } from "@/types"
 import { MOCK_AUTH } from "@/lib/mock_data"
+import { getAuth } from "firebase/auth"
+import { app, initAuth } from "@/auth/api"
 
 export const AuthContext = createContext<UserAuth>(null!)
 
@@ -13,6 +15,10 @@ export function AuthProvider({ children }: React.PropsWithChildren) {
             //will replace with actual user data fetching eventually
             return await MOCK_AUTH()
         }
+
+        initAuth()
+        const auth = getAuth(app)
+        console.log(auth)
 
         fetchAuth().then(res => {
             setUserAuth(res)
