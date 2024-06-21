@@ -14,6 +14,8 @@ export default {
       light_300: '#9fdfe2',
       dark_500: '#2030b8',
       dark_700: '#0b1154',
+      'options-blue': 'rgba(147, 216, 239, 1)', 
+      'menu-blue': 'rgba(155, 206, 216, 1)', 
     },
 
     extend: {
