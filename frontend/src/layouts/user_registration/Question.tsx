@@ -1,5 +1,5 @@
 import { ButtonGroup } from "@/components/buttons/"
-import { ButtonGroupProps } from "@/components/buttons/types"
+import { ButtonGroupProps } from "@/components/buttons/ButtonGroup"
 
 interface QuestionProps extends ButtonGroupProps {
     question: string

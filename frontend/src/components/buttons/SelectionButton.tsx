@@ -1,4 +1,11 @@
-import { SelectionButtonProps } from "./types"
+export interface SelectionButtonProps {
+    text: string,
+    label?: string,
+    active: boolean,
+    onClick: () => void,
+    style?: string,
+    activeStyle?: string
+}
 
 export function SelectionButton({
     text,

@@ -14,3 +14,5 @@ export function Layout({ children }: React.PropsWithChildren) {
         </div>
     )
 }
+
+export { Question } from "./Question"

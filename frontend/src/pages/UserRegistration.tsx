@@ -1,8 +1,7 @@
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Question } from '@/components/user_registration'
 import { UserContext } from '@/contexts'
-import { Layout } from "@/layouts/user_registration"
+import { Layout, Question } from "@/layouts/user_registration"
 
 interface QuestionFormat {
     question: string,
@@ -102,17 +101,19 @@ export function UserRegistration() {
     }
 
     const questionElements = questions.map(
-        (elem: QuestionFormat) =>
-        <Question
-            {...elem}
-            onSubmit={submitQuestion}
-            style={{
-                wrapperStyle: "flex flex-col items-center my-8 md:w-[70%] w-max-[400px]",
-                submitStyle: "px-4 py-2 my-2 bg-engbot-700 text-neutral-300 w-full rounded-xl text-center",
-                buttonStyle: "px-4 py-2 my-2 bg-engbot-100 text-engbot-700 w-full rounded-xl text-center",
-                activeStyle: "px-4 py-2 my-2 bg-sky-600 text-neutral-100 w-full rounded-xl text-center"
-            }}
-        />
+        (elem: QuestionFormat) => {
+            const buttonShape = "px-4 py-2 my-2 w-full rounded-xl text-center "
+            return <Question
+                {...elem}
+                onSubmit={submitQuestion}
+                style={{
+                    wrapperStyle: "flex flex-col items-center my-8 md:w-[70%] w-max-[400px]",
+                    submitStyle: buttonShape + "bg-engbot-700 text-neutral-300",
+                    buttonStyle: buttonShape + "bg-engbot-100 text-engbot-700",
+                    selectedStyle: buttonShape + "bg-sky-600 text-neutral-100"
+                }}
+            />
+        }
     )
 
     return (

@@ -1,6 +1,17 @@
 import { useState } from "react"
-import { ButtonLabel, ButtonGroupProps } from "./types"
 import { SelectionButton } from "./"
+
+export interface ButtonGroupProps {
+    labels: string[]
+    onSubmit: (selected: number[]) => void
+    style: {
+        buttonStyle: string
+        wrapperStyle: string
+        submitStyle?: string
+        selectedStyle?: string
+    }
+    type?: string
+}
 
 export function ButtonGroup({
     labels,
@@ -9,49 +20,39 @@ export function ButtonGroup({
     type
 }: ButtonGroupProps) {
 
-    const { buttonStyle, wrapperStyle, submitStyle, activeStyle } = style
-    const [buttonState, setButtonState] = useState<number[]>([])
-    const isActive = (id: number) => buttonState.includes(id)
+    //contains the indices of selected buttons
+    const [selected, setSelected] = useState<number[]>([])
+    const { buttonStyle, wrapperStyle, submitStyle, selectedStyle } = style
 
-    function setActive(id: number) {
-        if (buttonState.length === 0 || type === "single") {
-            setButtonState([id])
+    function handleSelection(index: number) {
+        if (selected.length === 0 || type === "single") {
+            setSelected([index])
             return
         }
 
-        if (buttonState.includes(id)) {
-            setButtonState(prevState => prevState.filter(elem => elem != id))
-            return
-        }
-        setButtonState(prevState => prevState.concat([id]))
-    }
-
-    const labelToButton = (label: ButtonLabel, index: number) => {
-        if (typeof label == "string")
-            return <SelectionButton
-                key={index}
-                text={label}
-                style={buttonStyle}
-                activeStyle={activeStyle}
-                active={isActive(index)}
-                onClick={() => setActive(index)}
-            />
-        return <SelectionButton
-            key={index}
-            {...label}
-            style={buttonStyle}
-            activeStyle={activeStyle}
-            active={isActive(index)}
-            onClick={() => setActive(index)}
-        />
+        setSelected(prevSelected => {
+            if (prevSelected.includes(index))
+                return prevSelected.filter(elem => elem != index)
+            else
+                return prevSelected.concat([index])
+        })
     }
 
     return (
         <div className={wrapperStyle}>
-            {labels.map(labelToButton)}
-            <button onClick={() => onSubmit(buttonState)}
+            {labels.map((label, index) =>
+                <SelectionButton
+                    key={index}
+                    text={label}
+                    style={buttonStyle}
+                    activeStyle={selectedStyle}
+                    active={selected.includes(index)}
+                    onClick={() => handleSelection(index)}
+                />
+            )}
+            <button onClick={() => onSubmit(selected)}
                 className={submitStyle}>
-                submit
+                Submit
             </button>
         </div>
     )
