@@ -1,7 +1,8 @@
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Question, ProgressBar } from '@/components/user_registration'
+import { Question } from '@/components/user_registration'
 import { UserContext } from '@/contexts'
+import { Layout } from "@/layouts/user_registration"
 
 interface QuestionFormat {
     question: string,
@@ -115,23 +116,13 @@ export function UserRegistration() {
     )
 
     return (
-        <div className="w-screen h-screen bg-engbot-gradient overflow-auto">
-            <ProgressBar progress={0} />
-            <main className="grid grid-cols-2 h-full w-full py-8 px-12">
-                <img src="main.png" alt="ENGBOT" className="m-auto w-[70%] lg:w-[40%] object-contain"/>
-                <div className="flex flex-col relative my-auto items-center
-                    text-3xl bg-engbot-400 py-8 px-12 rounded-3xl">
-                    {questionElements[questionNum]}
-                    { questionNum ?
-                        <p onClick={() => setQuestionNum(prevNum => prevNum - 1)} className="cursor-pointer">
-                            Go back
-                        </p> :
-                        <p onClick={() => navigate('/')}
-                            className="cursor-pointer py-2">
-                            Back to Title Page
-                        </p> }
-                </div>
-            </main>
-        </div>
+        <Layout>
+            {questionElements[questionNum]}
+            { questionNum !== 0 &&
+                <p onClick={() => setQuestionNum(prevNum => prevNum - 1)} className="cursor-pointer">
+                    Go back
+                </p>
+            }
+        </Layout>
     )
 }
