@@ -7,10 +7,5 @@ import { UserProvider } from "./UserProvider"
 const providers = [ UserProvider ]
 
 export function Providers({ children }: React.PropsWithChildren) {
-    const ProviderWrapper = providers.reduce((Elem, Provider) => <Provider>{Elem}</Provider>)
-    return (
-        <ProviderWrapper>
-            {children}
-        </ProviderWrapper>
-    )
+    return providers.reduce((Elem, Provider) => <Provider>{Elem}</Provider>, children)
 }
