@@ -1,6 +1,6 @@
 import { BsThreeDots } from "react-icons/bs"
 
-export default function LearnSlide() {
+export function LearnSlide() {
     return (
         <div className="w-full h-screen pt-[10vh] flex flex-col bg-background">
             <main className="flex flex-col items-center gap-4 px-1/10 mb-[10vh]">
@@ -16,7 +16,7 @@ export default function LearnSlide() {
                     <img src="work.png" alt="FART SMELLA" className="grow max-w-[200px]" />
                 </div>
             </main>
-            <div className="w-full grow bg-gradient-to-r from-light_100 to-background">
+            <div className="w-full grow bg-engbot-gradient">
             </div>
         </div>
     )
