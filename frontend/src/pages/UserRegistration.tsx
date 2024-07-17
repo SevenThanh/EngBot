@@ -40,7 +40,7 @@ export function UserRegistration() {
 
     return (
         <>
-            <ProgressBar progress={0} />
+            <ProgressBar progress={Math.floor(100 * questionId / (questions.length - 1))} />
             <main className="grid grid-cols-2 h-full w-full py-8 px-12">
                 <img src="/main.png" alt="ENGBOT" className="m-auto w-[70%] lg:w-[40%] object-contain"/>
                 <div className="flex flex-col relative my-auto items-center
